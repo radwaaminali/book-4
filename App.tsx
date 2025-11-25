@@ -56,4 +56,10 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default App; 
+useEffect(() => {
+  console.log("🔍 DEBUG INFO:");
+  console.log("🧩 FlipBook:", FlipBook);
+  console.log("📄 bookData:", bookData);
+}, []);
+
