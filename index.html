@@ -2,43 +2,59 @@
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+    />
     <title>XFUSE Market Research 2025</title>
+
+    <!-- ✅ Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- ✅ Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ✅ Tailwind Config -->
     <script>
       tailwind.config = {
-        darkMode: 'class',
+        darkMode: "class",
         theme: {
           extend: {
             colors: {
               xfuse: {
-                pink: '#FF0066',
-                cyan: '#00CFFF',
-                bg: '#F8F9FB', 
-                bgDark: '#0F172A',
-                accent: '#FBBF24',
-              }
+                pink: "#FF0066",
+                cyan: "#00CFFF",
+                bg: "#F8F9FB",
+                bgDark: "#0F172A",
+                accent: "#FBBF24",
+              },
             },
             fontFamily: {
-              cairo: ['Cairo', 'sans-serif'],
-              poppins: ['Poppins', 'sans-serif'],
+              cairo: ["Cairo", "sans-serif"],
+              poppins: ["Poppins", "sans-serif"],
             },
-          }
-        }
-      }
+          },
+        },
+      };
     </script>
+
+    <!-- ✅ Custom Styles -->
     <style>
       body {
-        font-family: 'Cairo', sans-serif;
-        overflow: hidden; /* Prevent global scroll */
+        font-family: "Cairo", sans-serif;
+        overflow: hidden;
         height: 100dvh;
         width: 100vw;
+        background-color: #0f172a;
+        color: white;
       }
-      
-      /* 3D Utilities */
+
+      /* 3D Flip Utilities */
       .perspective-1500 {
         perspective: 1500px;
       }
@@ -49,38 +65,50 @@
         backface-visibility: hidden;
       }
       .rotate-y-180 {
-        transform: rotateY(-180deg); /* Negative for RTL flip direction (Right to Left) logic */
+        transform: rotateY(-180deg);
       }
-      
-      /* Custom Scrollbar for internal page content */
+
+      /* Scrollbar */
       .custom-scrollbar::-webkit-scrollbar {
         width: 3px;
       }
-      .custom-scrollbar::-webkit-scrollbar-track {
-        background: transparent;
-      }
       .custom-scrollbar::-webkit-scrollbar-thumb {
-        background-color: #CBD5E1;
+        background-color: #cbd5e1;
         border-radius: 20px;
       }
       .dark .custom-scrollbar::-webkit-scrollbar-thumb {
         background-color: #334155;
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "framer-motion": "https://aistudiocdn.com/framer-motion@^11.0.8",
-    "@google/generative-ai": "https://aistudiocdn.com/@google/generative-ai@^0.24.1"
-  }
-}
-</script>
-</head>
-  <body>
-    <div id="root"></div>
+
+    <!-- ✅ ImportMap -->
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://aistudiocdn.com/react@^19.2.0",
+          "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
+          "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+          "framer-motion": "https://aistudiocdn.com/framer-motion@^11.0.8",
+          "@google/generative-ai": "https://aistudiocdn.com/@google/generative-ai@^0.24.1"
+        }
+      }
+    </script>
+  </head>
+
+  <body class="bg-xfuse-bg dark:bg-xfuse-bgDark transition-colors duration-500">
+    <div id="root">
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          color: #fbbf24;
+          font-size: 20px;
+        "
+      >
+        جاري تحميل واجهة الكتاب...
+      </div>
+    </div>
   </body>
 </html>
