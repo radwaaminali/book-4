@@ -1,31 +1,41 @@
-import React, { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import React, { Suspense } from "react";
+import ReactDOM from "react-dom/client";
 import App from "./App";
 
-// ✅ تأكد إن عندك عنصر root في index.html
-const rootElement = document.getElementById("root");
-
-if (!rootElement) {
-  // ✅ يعرض رسالة بديلة بدل ما تكون الصفحة فاضية
-  const fallback = document.createElement("div");
-  fallback.style.cssText = `
-    color: white;
-    background-color: #0f172a;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  `;
-  fallback.innerText = "⚙️ جاري تحميل واجهة الكتاب...";
-  document.body.appendChild(fallback);
-  throw new Error("❌ لم يتم العثور على عنصر root لعرض التطبيق.");
+// ✅ شاشة تحميل مؤقتة
+function LoadingScreen() {
+  return (
+    <div
+      style={{
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#0F172A",
+        color: "#FBBF24",
+        fontSize: "1.5rem",
+        fontWeight: "bold",
+        direction: "rtl",
+      }}
+    >
+      جاري تحميل واجهة الكتاب...
+    </div>
+  );
 }
 
-const root = createRoot(rootElement);
+const rootElement = document.getElementById("root");
+if (!rootElement) {
+  console.error("❌ لم يتم العثور على العنصر الجذر");
+  throw new Error("Root element not found");
+}
+
+// ✅ تحميل التطبيق داخل الـ DOM
+const root = ReactDOM.createRoot(rootElement);
 
 root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>
+  <React.StrictMode>
+    <Suspense fallback={<LoadingScreen />}>
+      <App />
+    </Suspense>
+  </React.StrictMode>
 );
